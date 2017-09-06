@@ -47,7 +47,8 @@ AMapSearchUtil.java 封装了AMap的Poi检索
 ```
 
 
-方法2：
+方法2：<br />
+全部参数需要用户自行设置。详细说明见下。 <br />
 ```java
 	
 	/**
