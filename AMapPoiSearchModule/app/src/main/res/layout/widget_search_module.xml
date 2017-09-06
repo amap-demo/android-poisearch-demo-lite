@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <merge xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <com.amap.poisearch.searchmodule.PoiSearchWidget
+    <com.amap.poisearch.module.PoiSearchWidget
         android:id="@+id/poi_search_widget"
         android:layout_width="match_parent"
         android:layout_height="45dp"
@@ -11,7 +11,7 @@
         android:background="#fff"
         />
 
-    <com.amap.poisearch.searchmodule.PoiListWidget
+    <com.amap.poisearch.module.PoiListWidget
         android:id="@+id/poi_list_widget"
         android:layout_below="@id/poi_search_widget"
         android:layout_width="match_parent"

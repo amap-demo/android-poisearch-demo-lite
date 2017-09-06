@@ -1,4 +1,4 @@
-package com.amap.poisearch.searchmodule;
+package com.amap.poisearch.module;
 
 import java.util.ArrayList;
 
@@ -7,7 +7,7 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.RelativeLayout;
 import com.amap.poisearch.R;
-import com.amap.poisearch.searchmodule.ICityChooseModule.IDelegate;
+import com.amap.poisearch.module.ICityChooseModule.IDelegate;
 import com.amap.poisearch.util.CityModel;
 
 /**

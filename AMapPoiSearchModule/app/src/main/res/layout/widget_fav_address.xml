@@ -22,22 +22,22 @@
         android:weightSum="2"
         >
 
-        <com.amap.poisearch.searchmodule.FavAddressItemWidget
+        <com.amap.poisearch.module.FavAddressItemWidget
             android:id="@+id/home_fav_address_item"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"></com.amap.poisearch.searchmodule.FavAddressItemWidget>
+            android:layout_weight="1"></com.amap.poisearch.module.FavAddressItemWidget>
 
         <View
             android:layout_width="2px"
             android:layout_height="match_parent"
             android:background="@color/divider_color"></View>
 
-        <com.amap.poisearch.searchmodule.FavAddressItemWidget
+        <com.amap.poisearch.module.FavAddressItemWidget
             android:id="@+id/comp_fav_address_item"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"></com.amap.poisearch.searchmodule.FavAddressItemWidget>
+            android:layout_weight="1"></com.amap.poisearch.module.FavAddressItemWidget>
 
 
     </LinearLayout>

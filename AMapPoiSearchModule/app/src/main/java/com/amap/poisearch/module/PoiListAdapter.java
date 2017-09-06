@@ -1,20 +1,17 @@
- package com.amap.poisearch.searchmodule;
+ package com.amap.poisearch.module;
 
 import java.util.ArrayList;
 
 import android.content.Context;
 import android.location.Location;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.amap.api.services.core.PoiItem;
 import com.amap.poisearch.R;
 
 /**
@@ -24,10 +21,6 @@ import com.amap.poisearch.R;
 public class PoiListAdapter extends BaseAdapter {
 
     private Context context;
-
-    private String homeAddr;
-
-    private String compAddr;
 
     ArrayList<PoiListItemData> data;
 
@@ -40,36 +33,12 @@ public class PoiListAdapter extends BaseAdapter {
     private static final int LOAD_STATUS_LOADING = 0;
     private static final int LOAD_STATUS_FINISHED = 1;
 
-    private Callback mCallback;
-
-    public static interface Callback{
-        public static final int HOME_MODE = 0;
-        public static final int COMP_MODE = 1;
-
-        public static final int CHANGE_MODE = 0;
-        public static final int SEL_MODE =  1;
-
-        public void onFavAddressClick(int homeOrComp, int changeOrSel);
-
-        public void onSelPoiItem(PoiItem poiItem);
-    }
 
     public PoiListAdapter(Context context , ArrayList<PoiListItemData> data) {
         this.context = context;
         this.data = data;
     }
 
-    public void setHomeAddr(String homeAddr) {
-        this.homeAddr = homeAddr;
-    }
-
-    public void setCompAddr(String compAddr) {
-        this.compAddr = compAddr;
-    }
-
-    public void setCallback(Callback mCallback) {
-        this.mCallback = mCallback;
-    }
 
     public void onLoading(){
         loadStatus = LOAD_STATUS_LOADING;
@@ -100,7 +69,7 @@ public class PoiListAdapter extends BaseAdapter {
                 return 0;
             }
 
-            return data.size() + 1;
+            return data.size();
         }
     }
 
@@ -120,12 +89,8 @@ public class PoiListAdapter extends BaseAdapter {
             return 0;
         }
 
-        if (position == 0) {
+        if (position >= 0) {
             return 1;
-        }
-
-        if (position > 0) {
-            return 2;
         }
 
         return super.getItemViewType(position);
@@ -133,7 +98,7 @@ public class PoiListAdapter extends BaseAdapter {
 
     @Override
     public int getViewTypeCount() {
-        return 3;
+        return 2;
     }
 
     @Override
@@ -141,21 +106,6 @@ public class PoiListAdapter extends BaseAdapter {
 
         if (loadStatus == LOAD_STATUS_FINISHED) {
             if (getItemViewType(position) == 1) {
-                if (convertView == null || !(convertView instanceof FavAddressWidget)) {
-                    convertView = new FavAddressWidget(context);
-                }
-
-                ((FavAddressWidget)convertView).setVisible(isFavViewVisible);
-
-                ((FavAddressWidget)convertView).setHomeAddr(homeAddr);
-                ((FavAddressWidget)convertView).setCompAddr(compAddr);
-
-                ((FavAddressWidget)convertView).setCallback(mCallback);
-
-                return convertView;
-            }
-
-            if (getItemViewType(position) == 2) {
                 if (convertView == null) {
                     convertView = new PoiListItemWidget(context);
                 }
@@ -169,12 +119,11 @@ public class PoiListAdapter extends BaseAdapter {
                     tag.disTV = (TextView)convertView.findViewById(R.id.dis_tv);
 
                     convertView.setTag(tag);
-                    convertView.setOnClickListener(mItemClickListener);
                 }
 
                 PoiItemWidgetTag tag = (PoiItemWidgetTag)convertView.getTag();
 
-                PoiListItemData poiItem = data.get(position - 1);
+                PoiListItemData poiItem = data.get(position);
                 tag.from(poiItem);
 
                 return convertView;
@@ -237,25 +186,4 @@ public class PoiListAdapter extends BaseAdapter {
             }
         }
     }
-
-    private View.OnClickListener mItemClickListener = new OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            if (!(v instanceof PoiListItemWidget)) {
-                return;
-            }
-
-            if (mCallback == null) {
-                return;
-            }
-
-            if (v.getTag() == null || (!(v.getTag() instanceof PoiItemWidgetTag))) {
-                return;
-            }
-
-            PoiItemWidgetTag tag = (PoiItemWidgetTag)v.getTag();
-
-            mCallback.onSelPoiItem(tag.mPoiItem.poiItem);
-        }
-    };
 }

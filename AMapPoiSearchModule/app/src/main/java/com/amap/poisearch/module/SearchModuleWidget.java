@@ -1,19 +1,15 @@
-package com.amap.poisearch.searchmodule;
+package com.amap.poisearch.module;
 
 import java.util.ArrayList;
 
 import android.content.Context;
-import android.location.Location;
-import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.RelativeLayout;
-import com.amap.api.services.core.PoiItem;
 import com.amap.poisearch.R;
-import com.amap.poisearch.searchmodule.ISearchModule.IDelegate;
-import com.amap.poisearch.searchmodule.ISearchModule.IWidget;
-import com.amap.poisearch.searchmodule.PoiListAdapter.Callback;
-import com.amap.poisearch.searchmodule.PoiSearchWidget.IParentWidget;
+import com.amap.poisearch.module.ISearchModule.IDelegate;
+import com.amap.poisearch.module.ISearchModule.IWidget;
+import com.amap.poisearch.module.PoiSearchWidget.IParentWidget;
 
 /**
  * Created by liangchao_suxun on 2017/4/26.
@@ -58,45 +54,12 @@ class SearchModuleWidget extends RelativeLayout implements IWidget {
     }
 
     @Override
-    public void setPoiType(int poiType) {
-        mPoiSearchWidget.setPoiType(poiType);
-    }
-
-    @Override
     public void setCityName(String cityName) {
         if (mPoiSearchWidget != null) {
             mPoiSearchWidget.setCityName(cityName);
         }
     }
 
-    @Override
-    public void setCurrLoc(Location currLoc) {
-        mPoiListWidget.setCurrLoc(currLoc);
-    }
-
-
-    @Override
-    public void setFavAddressVisible(boolean isVisible) {
-        mPoiListWidget.setFavAddressVisible(isVisible);
-    }
-
-    @Override
-    public void setFavHomeAddress(String address) {
-        if (TextUtils.isEmpty(address)) {
-            return;
-        }
-
-        mPoiListWidget.setHomeAddr(address);
-    }
-
-    @Override
-    public void setFavCompAddress(String address) {
-        if (TextUtils.isEmpty(address)) {
-            return;
-        }
-
-        mPoiListWidget.setCompAddr(address);
-    }
 
     @Override
     public void reloadPoiList(ArrayList<PoiListItemData> poiItems) {
@@ -122,34 +85,5 @@ class SearchModuleWidget extends RelativeLayout implements IWidget {
     };
 
     private PoiListWidget.IParentWidget mPoiListParentWidgetDelegate = new PoiListWidget.IParentWidget() {
-
-        @Override
-        public void onFavAddressClick(int homeOrComp, int changeOrSel) {
-
-            if (homeOrComp == Callback.HOME_MODE) {
-                switch (changeOrSel) {
-                    case Callback.CHANGE_MODE:
-                        mDelegate.onSetFavHomePoi();
-                        break;
-                    case Callback.SEL_MODE:
-                        mDelegate.onChooseFavHomePoi();
-                        break;
-                }
-            } else {
-                switch (changeOrSel) {
-                    case Callback.CHANGE_MODE:
-                        mDelegate.onSetFavCompPoi();
-                        break;
-                    case Callback.SEL_MODE:
-                        mDelegate.onChooseFavCompPoi();
-                        break;
-                }
-            }
-        }
-
-        @Override
-        public void onSelPoiItem(PoiItem poiItem) {
-            mDelegate.onSelPoiItem(poiItem);
-        }
     };
 }

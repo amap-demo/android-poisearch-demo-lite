@@ -1,19 +1,15 @@
 package com.amap.poisearchdemo;
 
-import java.util.ArrayList;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.widget.RelativeLayout;
-import com.amap.poisearch.searchmodule.CityChooseDelegate;
-import com.amap.poisearch.searchmodule.CityChooseWidget;
-import com.amap.poisearch.searchmodule.ICityChooseModule;
-import com.amap.poisearch.searchmodule.ICityChooseModule.IParentDelegate;
+import com.amap.poisearch.module.CityChooseDelegate;
+import com.amap.poisearch.module.ICityChooseModule;
+import com.amap.poisearch.module.ICityChooseModule.IParentDelegate;
 import com.amap.poisearch.util.CityModel;
-import com.amap.poisearch.util.CityUtil;
 import com.google.gson.Gson;
 
 /**
@@ -22,7 +18,6 @@ import com.google.gson.Gson;
 
 public class CityChooseActivity extends AppCompatActivity {
 
-    private CityChooseWidget mCityChooseWidget;
     private CityChooseDelegate mCityChooseDelegate;
 
     @Override

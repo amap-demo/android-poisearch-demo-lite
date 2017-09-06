@@ -1,4 +1,4 @@
- package com.amap.poisearch.searchmodule;
+ package com.amap.poisearch.module;
 
 import java.util.ArrayList;
 

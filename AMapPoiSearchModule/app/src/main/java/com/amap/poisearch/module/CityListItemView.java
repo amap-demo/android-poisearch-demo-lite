@@ -1,4 +1,4 @@
-package com.amap.poisearch.searchmodule;
+package com.amap.poisearch.module;
 
 import android.content.Context;
 import android.text.TextUtils;

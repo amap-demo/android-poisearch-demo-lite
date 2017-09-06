@@ -47,11 +47,7 @@ dependencies {
     compile 'com.amap.api:location:latest.integration'
 
     compile 'com.google.code.gson:gson:2.8.0'
-
-    compile 'com.amap.api:poisearchmodule:1.0.0'
-
-//    compile the project if you'd like to DIV
-//    compile project(":AmapPoiSearchModule")
+    compile project(":AmapPoiSearchModule")
 
     compile 'com.android.support:appcompat-v7:25.1.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.0-beta4'

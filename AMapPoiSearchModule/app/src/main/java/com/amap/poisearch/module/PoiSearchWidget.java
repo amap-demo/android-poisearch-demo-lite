@@ -1,4 +1,4 @@
-package com.amap.poisearch.searchmodule;
+package com.amap.poisearch.module;
 
 import android.content.Context;
 import android.text.Editable;
@@ -10,7 +10,6 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.amap.poisearch.R;
-import com.amap.poisearch.searchmodule.ISearchModule.IDelegate;
 
 /**
  * Created by liangchao_suxun on 2017/4/26.
@@ -55,13 +54,6 @@ public class PoiSearchWidget extends RelativeLayout {
         mCityNameTV.setText(this.mCityName);
     }
 
-    public void setPoiType(int poiType) {
-        if (poiType == IDelegate.START_POI_TYPE) {
-            mPoiInputTV.setHint("你从哪儿出发");
-        } else if (poiType == IDelegate.DEST_POI_TYPE) {
-            mPoiInputTV.setHint("你要去哪儿");
-        }
-    }
 
     private void init() {
         LayoutInflater.from(getContext()).inflate(R.layout.widget_poi_search, this);

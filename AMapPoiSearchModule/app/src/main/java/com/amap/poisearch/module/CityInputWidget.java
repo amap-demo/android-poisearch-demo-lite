@@ -1,17 +1,15 @@
-package com.amap.poisearch.searchmodule;
+package com.amap.poisearch.module;
 
 import android.content.Context;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.amap.poisearch.R;
-import com.amap.poisearch.util.CityModel;
 
 /**
  * Created by liangchao_suxun on 2017/5/2.

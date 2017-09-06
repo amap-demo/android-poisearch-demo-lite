@@ -1,12 +1,11 @@
-package com.amap.poisearch.searchmodule;
+package com.amap.poisearch.module;
 
 import java.util.ArrayList;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.View;
-import com.amap.poisearch.searchmodule.ICityChooseModule.IParentDelegate;
-import com.amap.poisearch.searchmodule.ICityChooseModule.IWidget;
+import com.amap.poisearch.module.ICityChooseModule.IParentDelegate;
+import com.amap.poisearch.module.ICityChooseModule.IWidget;
 import com.amap.poisearch.util.CityModel;
 import com.amap.poisearch.util.CityUtil;
 
