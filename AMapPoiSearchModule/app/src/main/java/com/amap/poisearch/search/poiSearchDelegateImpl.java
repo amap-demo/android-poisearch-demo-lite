@@ -10,7 +10,7 @@ import com.amap.poisearch.search.AMapSearchUtil.OnSearchResListener;
  * Created by liangchao_suxun on 2017/9/5.
  */
 
-public class PoiSearchDeleteImpl implements IPoisearchDelegate {
+public class poiSearchDelegateImpl implements IPoisearchDelegate {
 
     /**
      * 只对最新的请求返回的数据进行回调

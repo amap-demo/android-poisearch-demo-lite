@@ -10,7 +10,7 @@ import android.widget.Toast;
 import com.amap.api.services.core.PoiItem;
 import com.amap.poisearch.search.IPoisearchDelegate;
 import com.amap.poisearch.search.IPoisearchDelegate.Callback;
-import com.amap.poisearch.search.PoiSearchDeleteImpl;
+import com.amap.poisearch.search.poiSearchDelegateImpl;
 import com.amap.poisearch.module.ISearchModule.IDelegate;
 import com.amap.poisearch.module.ISearchModule.IWidget;
 import com.amap.poisearch.util.CityModel;
@@ -69,7 +69,7 @@ public class SearchModuleDelegate implements IDelegate {
     }
 
     public void init(Context context) {
-        mPoisearchDelegate = new PoiSearchDeleteImpl();
+        mPoisearchDelegate = new poiSearchDelegateImpl();
         reload(null);
     }
 
