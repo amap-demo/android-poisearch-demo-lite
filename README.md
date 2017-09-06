@@ -24,7 +24,7 @@ AMap 检索的逻辑模块。着重介绍AMap检索的使用方法，通过参�
 * AMapSearchUtil.java 调用AMap检索SDK进行poi检索。详细介绍见下。
 
 # AMapSearchUtil 详细介绍
-AMapSearchUtil.java 封装了AMap的Poi检索
+AMapSearchUtil.java 封装了AMap的Poi检索。关注Poi搜索的同学只关注此类即可。
 ## 使用方法
 建议出行场景的用户使用方法1。是否按照距离排序可以按照需求判断（如果设置为true，必须要传中心点才有意义） <br />
 方法1：  <br />
