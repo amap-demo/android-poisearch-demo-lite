@@ -10,6 +10,9 @@ AMap 检索的逻辑模块。着重介绍AMap检索的使用方法，通过参�
 - [Android Studio工程搭建方法](http://lbs.amap.com/api/android-sdk/guide/creat-project/android-studio-creat-project/#add-jars).
 - [通过maven库引入SDK方法](http://lbsbbs.amap.com/forum.php?mod=viewthread&tid=18786).
 
+## 组件截图 ###
+<img src="https://github.com/LiangChaoPossible/android-poisearch-demo-lite/blob/dev_poisearch_instru/poi-search-lite-sc.png" width="50%" />
+
 # Demo结构介绍
 类图如下：
 
